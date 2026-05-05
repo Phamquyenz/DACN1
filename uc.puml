@@ -1,0 +1,20 @@
+left to right direction
+actor "Khách hàng" as KH
+actor "Admin" as AD
+package "The Stationery Muse" {
+  usecase "Đăng nhập" as UC1
+  usecase "Giỏ hàng" as UC2
+  usecase "Thanh toán (VNPAY)" as UC3
+  usecase "Quản lý Người dùng" as UC8
+  usecase "Quản lý Sản phẩm / Kho" as UC9
+  usecase "Quản lý Vouchers" as UC10
+  usecase "Quản lý Đơn hàng" as UC11
+}
+KH --> UC1
+KH --> UC2
+KH --> UC3
+AD --> UC1
+AD --> UC8
+AD --> UC9
+AD --> UC10
+AD --> UC11
