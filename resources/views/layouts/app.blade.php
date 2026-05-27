@@ -115,6 +115,7 @@
                                 <li><a href="/#all-products" class="hover:text-sepia-300 transition">Sản Phẩm</a></li>
                                 <li><a href="/#flash-sale" class="hover:text-sepia-300 transition text-red-400">⚡ Flash Sale</a></li>
                                 <li><a href="{{ route('cart.index') }}" class="hover:text-sepia-300 transition">Giỏ Hàng</a></li>
+                                <li><a href="{{ route('sitemap') }}" class="hover:text-sepia-300 transition">Sơ Đồ Trang</a></li>
                             </ul>
                         </div>
 

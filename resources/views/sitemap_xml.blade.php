@@ -24,6 +24,14 @@
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
+    @foreach ($categories as $category)
+    <url>
+        <loc>{{ route('products.index', ['category' => $category->name]) }}</loc>
+        <lastmod>{{ now()->toAtomString() }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    @endforeach
     @foreach ($products as $product)
     <url>
         <loc>{{ route('product.show', $product->id) }}</loc>

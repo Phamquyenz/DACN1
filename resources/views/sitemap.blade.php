@@ -197,7 +197,41 @@
                 </div>
             </section>
 
-            <!-- SECTION 2: CHI TIẾT SẢN PHẨM -->
+            <!-- SECTION 2: DANH MỤC SẢN PHẨM -->
+            <section class="vintage-card rounded-[2.5rem] p-8 md:p-10">
+                <div class="flex items-center justify-between gap-4 mb-8 border-b border-beige-100 pb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 bg-sepia-50 rounded-2xl text-sepia-500 border border-beige-200/50">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-serif font-bold text-earth-900 tracking-tight">Danh Mục Sản Phẩm</h2>
+                    </div>
+                    <span class="px-4 py-1.5 bg-sepia-100 text-sepia-700 border border-sepia-200 rounded-full text-xs font-bold tracking-wider">
+                        {{ $categories->count() }} Danh mục
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    @forelse($categories as $category)
+                        <a href="{{ route('products.index', ['category' => $category->name]) }}" class="vintage-inner-card p-6 rounded-2xl group flex flex-col justify-between">
+                            <div class="text-earth-900 font-bold text-sm mb-1 group-hover:text-sepia-500 transition duration-300">
+                                {{ $category->name }}
+                            </div>
+                            <div class="text-xs text-earth-400 font-mono">
+                                {{ route('products.index', ['category' => $category->name]) }}
+                            </div>
+                        </a>
+                    @empty
+                        <div class="col-span-full p-12 text-center text-earth-400 italic text-sm">
+                            Chưa có danh mục nào trong hệ thống.
+                        </div>
+                    @endforelse
+                </div>
+            </section>
+
+            <!-- SECTION 3: CHI TIẾT SẢN PHẨM -->
             <section class="vintage-card rounded-[2.5rem] p-8 md:p-10">
                 <div class="flex items-center justify-between gap-4 mb-8 border-b border-beige-100 pb-4">
                     <div class="flex items-center gap-4">
@@ -237,7 +271,7 @@
                 </div>
             </section>
 
-            <!-- SECTION 3: KHU VỰC THÀNH VIÊN (MEMBER ZONE) -->
+            <!-- SECTION 4: KHU VỰC THÀNH VIÊN (MEMBER ZONE) -->
             <section class="vintage-card rounded-[2.5rem] p-8 md:p-10">
                 <div class="flex items-center justify-between mb-8 border-b border-beige-100 pb-4">
                     <div class="flex items-center gap-4">
@@ -284,7 +318,7 @@
                 @endauth
             </section>
 
-            <!-- SECTION 4: KHU VỰC QUẢN TRỊ (ADMIN ZONE) -->
+            <!-- SECTION 5: KHU VỰC QUẢN TRỊ (ADMIN ZONE) -->
             @if(auth()->check() && auth()->user()->role === 'admin')
                 <section class="vintage-card rounded-[2.5rem] p-8 md:p-10 border border-red-200 bg-red-50/10">
                     <div class="flex items-center gap-4 mb-8 border-b border-red-100 pb-4">

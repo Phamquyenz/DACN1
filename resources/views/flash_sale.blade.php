@@ -71,6 +71,32 @@
                                 -{{ round((($product->price - $product->sale_price)/$product->price)*100) }}%
                             </div>
                             @endif
+                            
+                            @if($product->flash_sale_end)
+                            <div class="absolute top-6 right-6 bg-earth-900/90 backdrop-blur-sm text-white text-[9px] font-bold px-3 py-1.5 rounded-full shadow-xl flex items-center space-x-1"
+                                 x-data="{
+                                     endTime: '{{ $product->flash_sale_end }}',
+                                     timeStr: '',
+                                     init() {
+                                         this.update();
+                                         setInterval(() => this.update(), 1000);
+                                     },
+                                     update() {
+                                         let dist = new Date(this.endTime).getTime() - new Date().getTime();
+                                         if (dist < 0) {
+                                             this.timeStr = 'HẾT HẠN';
+                                             return;
+                                         }
+                                         let h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + (Math.floor(dist / (1000 * 60 * 60 * 24)) * 24);
+                                         let m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+                                         let s = Math.floor((dist % (1000 * 60)) / 1000);
+                                         this.timeStr = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+                                     }
+                                 }">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+                                <span x-text="timeStr">00:00:00</span>
+                            </div>
+                            @endif
                         </div>
 
                         <div class="p-10">
