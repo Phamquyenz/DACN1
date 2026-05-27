@@ -60,8 +60,18 @@
                                         <label class="flex items-center space-x-3 cursor-pointer p-4 rounded-2xl border border-beige-200 bg-beige-50 hover:bg-white transition-all">
                                             <input type="radio" name="payment_method" value="vnpay" class="w-4 h-4 text-sepia-500 border-gray-300 focus:ring-sepia-500">
                                             <span class="text-sm font-bold text-earth-900 flex items-center">
-                                                Thanh toán qua VNPay
+                                                Thanh toán qua cổng VNPay (Thẻ ATM / Thẻ quốc tế)
                                                 <img src="https://vnpay.vn/s1/statics.vnpay.vn/2023/6/oxkqk5yvw6tt1685956114140.png" alt="VNPay" class="h-4 ml-2 object-contain">
+                                            </span>
+                                        </label>
+                                        <label class="flex items-center space-x-3 cursor-pointer p-4 rounded-2xl border border-beige-200 bg-beige-50 hover:bg-white transition-all">
+                                            <input type="radio" name="payment_method" value="vnpay_qr" class="w-4 h-4 text-sepia-500 border-gray-300 focus:ring-sepia-500">
+                                            <span class="text-sm font-bold text-earth-900 flex items-center">
+                                                Thanh toán quét mã QR (VNPAY-QR)
+                                                <svg class="w-4 h-4 ml-2 text-sepia-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 15h.008v.008H15V15zm0 2.25h.008v.008H15v-.008zm0 2.25h.008v.008H15v-.008zm2.25-4.5h.008v.008H17.25V15zm0 2.25h.008v.008H17.25v-.008zm0 2.25h.008v.008H17.25v-.008zm2.25-4.5h.008v.008H19.5V15zm0 2.25h.008v.008H19.5v-.008zm0 2.25h.008v.008H19.5v-.008z" />
+                                                </svg>
                                             </span>
                                         </label>
                                     </div>

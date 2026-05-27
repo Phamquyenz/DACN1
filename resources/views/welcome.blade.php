@@ -49,7 +49,10 @@
                 <!-- Right: Carousel -->
                 <div x-data="heroCarousel()" x-init="start()" class="relative w-full max-w-3xl mx-auto xl:mx-0 mt-10 xl:mt-0">
                     <div class="mb-4 px-6 text-center xl:text-right">
-                        <h2 class="text-lg md:text-xl font-serif font-bold text-earth-900 tracking-tight">Sản Phẩm Nổi Bật</h2>
+                        <h2 class="text-lg md:text-xl font-serif font-bold text-earth-900 tracking-tight flex items-center justify-center xl:justify-end">
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-sepia-500 mr-2.5 animate-ping"></span>
+                            Sản Phẩm Nổi Bật
+                        </h2>
                         <p class="text-[10px] font-bold text-sepia-500 uppercase tracking-[0.3em] mt-1">Khám phá ngay</p>
                     </div>
                     <!-- Carousel Container -->

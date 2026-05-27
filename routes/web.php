@@ -38,6 +38,8 @@ Route::get('/test-popup', function() {
     return redirect('/');
 });
 Route::get('/flash-sale', [HomeController::class, 'flashSale'])->name('flash_sale');
+Route::get('/so-do-trang', [HomeController::class, 'sitemap'])->name('sitemap');
+Route::get('/sitemap.xml', [HomeController::class, 'sitemapXml'])->name('sitemap.xml');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::put('/cart/update', [CartController::class, 'update'])->name('cart.update');

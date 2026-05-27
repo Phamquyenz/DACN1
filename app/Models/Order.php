@@ -12,7 +12,8 @@ class Order extends Model
     protected $fillable = [
         'user_id', 'total_price', 'status', 
         'customer_name', 'customer_phone', 'shipping_address',
-        'subtotal', 'shipping_fee', 'discount_amount', 'voucher_code'
+        'subtotal', 'shipping_fee', 'discount_amount', 'voucher_code',
+        'payment_method', 'payment_status', 'transaction_id'
     ];
 
     public function orderItems()

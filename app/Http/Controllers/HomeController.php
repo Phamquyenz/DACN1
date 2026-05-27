@@ -92,4 +92,22 @@ class HomeController extends Controller
 
         return view('products.show', compact('product', 'hasPurchased'));
     }
+
+    public function sitemap()
+    {
+        $products = Product::select('id', 'name', 'price', 'created_at', 'stock')->latest()->get();
+        $categories = Category::select('id', 'name')->get();
+        return view('sitemap', compact('products', 'categories'));
+    }
+
+    public function sitemapXml()
+    {
+        $products = Product::latest()->get();
+        $categories = Category::all();
+        
+        $content = view('sitemap_xml', compact('products', 'categories'))->render();
+        
+        return response($content, 200)
+            ->header('Content-Type', 'text/xml; charset=utf-8');
+    }
 }

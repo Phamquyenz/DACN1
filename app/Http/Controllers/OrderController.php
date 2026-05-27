@@ -167,7 +167,7 @@ class OrderController extends Controller
             })->toArray());
         }
 
-        if ($paymentMethod === 'vnpay') {
+        if ($paymentMethod === 'vnpay' || $paymentMethod === 'vnpay_qr') {
             $vnp_Url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html';
             $vnp_Returnurl = url('/vnpay/return');
             $vnp_TmnCode = 'CGXZLS0Z';
@@ -205,18 +205,22 @@ class OrderController extends Controller
                 "vnp_ExpireDate" => $vnp_ExpireDate
             );
 
+            if ($paymentMethod === 'vnpay_qr') {
+                $inputData['vnp_BankCode'] = 'VNPAYQR';
+            }
+
             ksort($inputData);
             $query = "";
             $i = 0;
             $hashdata = "";
             foreach ($inputData as $key => $value) {
                 if ($i == 1) {
-                    $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                    $hashdata .= '&' . rawurlencode($key) . "=" . rawurlencode($value);
                 } else {
-                    $hashdata .= urlencode($key) . "=" . urlencode($value);
+                    $hashdata .= rawurlencode($key) . "=" . rawurlencode($value);
                     $i = 1;
                 }
-                $query .= urlencode($key) . "=" . urlencode($value) . '&';
+                $query .= rawurlencode($key) . "=" . rawurlencode($value) . '&';
             }
 
             $vnp_Url = $vnp_Url . "?" . rtrim($query, '&');
@@ -251,9 +255,9 @@ class OrderController extends Controller
         $hashData = "";
         foreach ($inputData as $key => $value) {
             if ($i == 1) {
-                $hashData = $hashData . '&' . urlencode($key) . "=" . urlencode($value);
+                $hashData = $hashData . '&' . rawurlencode($key) . "=" . rawurlencode($value);
             } else {
-                $hashData = $hashData . urlencode($key) . "=" . urlencode($value);
+                $hashData = $hashData . rawurlencode($key) . "=" . rawurlencode($value);
                 $i = 1;
             }
         }

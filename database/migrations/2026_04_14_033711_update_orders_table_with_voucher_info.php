@@ -18,7 +18,9 @@ return new class extends Migration
             $table->decimal('shipping_fee', 15, 2)->after('subtotal')->default(0);
             $table->decimal('discount_amount', 15, 2)->after('shipping_fee')->default(0);
             $table->string('voucher_code')->after('discount_amount')->nullable();
-            
+        });
+
+        Schema::table('orders', function (Blueprint $table) {
             // Rename customer_address to shipping_address if it exists
             if (Schema::hasColumn('orders', 'customer_address')) {
                 $table->renameColumn('customer_address', 'shipping_address');
@@ -35,7 +37,9 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn(['subtotal', 'shipping_fee', 'discount_amount', 'voucher_code']);
-            
+        });
+
+        Schema::table('orders', function (Blueprint $table) {
             if (Schema::hasColumn('orders', 'shipping_address')) {
                 $table->renameColumn('shipping_address', 'customer_address');
             }
